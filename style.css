@@ -1,0 +1,482 @@
+* {
+    /*selects all elements*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*it includes any border or padding in total width and height of an element.
+
+    ex:if you set 100px width it will include any padding or border will be added  
+    
+    default: content-box */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    /*the content will not overflow the element's box,
+    so the rest of the content will be clipped*/
+}
+
+.container {
+    min-height: 100vh;
+    /*the value won't get smaller than this value
+    vh : relative to 1% of the height of the viewport
+    %: relative to the parent element*/
+    width: 100%;
+    background-image: url(BW-gif-anim.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    /*it clips the content horizontally to not overflow the element's box*/
+    transform-style: preserve-3d;
+    /*the children of an element(the content class) will be positioned in 3D space.
+    the other value is flat*/
+}
+
+.navbar {
+    position: fixed;
+    /*it always stays in the same place, even when the page is scrolled.
+
+    relative:
+    it's positioned relative to it's normal position.
+    (according to the normal flow of the document)
+    so when we set top,right,bottom,left.. will be adjusted relatively from its normal position
+    
+    absolute: positioned relative to the nearest positioned ancestor(anzestor)
+    */
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /*specifies the stack order of an element
+    (which element should be in front or behind*/
+    width: 100%;
+    height: 3rem;
+
+}
+
+/*the top part of the page which includes 
+the logo and the menu icon*/
+.menu {
+    max-width: 72rem;
+    width: 100%;
+    margin: 0 auto;
+    /*space around elements*/
+    padding: 0 2rem;
+    /*the space inside of borders (space around content of an element)*/
+    display: flex;
+    /*defines the child items as a flex items.
+     and behaves like block-level elements.
+   and the collection of items are specified to space between*/
+    justify-content: space-between;
+    align-items: center;
+    /*vertically*/
+    color: rgb(194, 5, 5);
+    /*blair witch logo*/
+}
+
+.logo {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 3rem;
+    /*the height of the line*/
+    background-color: rgba(179, 228, 232, 0.507);
+    padding: 5px 10px;
+    border-radius: 50%;
+    /*specifies the radius of corners*/
+    font-family: 'Elastic Bones', sans-serif;
+}
+
+.logo span {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.side-menu i {
+    font-size: 2rem;
+    /* height: 4rem;
+    width: 3rem;*/
+    cursor: pointer;
+    display: flex;
+    /*specify a flexible container, 
+   the children of this container can be laid out in any direction.(we specify)
+   */
+    align-items: center;
+    color: rgb(2, 222, 242);
+}
+
+i:hover {
+    scale: 1.1;
+    /*changing size of elements*/
+}
+
+.main {
+    position: relative;
+    /*it's positioned relative to it's normal position.
+    (The element is positioned according to the normal flow of the document)
+   
+    so when we set top,right,bottom,left.. will be adjusted relatively from its normal position
+    */
+    width: 100%;
+    left: 0;
+    z-index: 5;
+    /*specifies the stack order of an element
+    (which element should be in front or behind*/
+    background-color: white;
+    overflow: hidden;
+    /*the content will not overflow the element's box,
+    so the rest of the content will be clipped*/
+    /* min-height: 100vh;*/
+    transform-origin: left;
+    /*allows to change the position of transformed elements*/
+    transform-style: preserve-3d;
+    /*the children of an element(the content class) will be positioned in 3D space.
+     */
+    /*must add preserve3d here and to it's parent(container)*/
+    /* transition: 0.5s;*/
+
+}
+
+/*positioning vid and styling it*/
+#vid-container {
+    position: relative;
+    /*it's positioned to it's normal position.
+    (The element is positioned according to the normal flow of the document then offset relative to itself based on values of top,right,bottom,left)
+    will be adjusted away from it's normal position, and the other content will be adjusted to fit into any gap left by the element.
+    */
+    width: 100%;
+}
+
+video {
+    width: 100%;
+    min-height: 100vh;
+    /*vh : relative to 1% of the height of the viewport
+    %: relative to the parent element*/
+    object-fit: cover;
+    /*specifies how img or vid should be resized to fit it's container, 
+    cover: the vid will be clipped to fit the given dimension */
+}
+
+/*layer screen on background pic*/
+.overlay {
+    position: absolute;
+    /* absolute: positioned relative to the nearest positioned ancestor(anzestor)*/
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #494a4b8f;
+    display: flex;
+    /*makes the children of an element flex items.
+    and can be laid out in any direction.
+    displays the element like a block-level flex container/element*/
+    justify-content: center;
+    /*align the items horizontally*/
+    align-items: center;
+    /*vertically*/
+}
+
+.txt {
+    max-width: 50rem;
+    text-align: center;
+    color: #f20000;
+    padding: 0.25rem 2rem;
+}
+
+.txt p {
+    color: #aac5c6;
+    font-size: 18px;
+}
+
+.title {
+    font-family: 'Elastic Bones', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 4rem;
+    font-family: 'Elastic Bones', sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    color: #23b6bb;
+    font-family: 'Elastic Bones', sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 5px solid rgba(0, 0, 0, 0.924);
+    border-radius: 25%;
+    border-style: groove solid;
+    word-spacing: 3px;
+}
+
+.btn:hover {
+    color: #c50000;
+    padding: 1.5rem 2.7rem;
+    font-size: 1.5rem;
+}
+
+/*I added a classlist "active"
+when i click on menu-icon(side-menu),
+the side menu will be open and the container of the video will be animated.
+container:contains everything 
+main: contains the video and the overlay*/
+.container.active .main {
+    animation: animMain 0.5s ease;
+    /*animName delay animation-timing-function
+    ease: slow start-then fast-then slow end
+    ease-in:slow start||ease-out:slow end
+    ease-in-out: slow start and end
+    linear: same speed */
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    /*transform:applies 2d/3d transformation to an element.
+
+   perspective: defines perspective view for a 3D transformed element
+   ( creates depth illusion by creating a virtual camera with given distance from user's viewpoint (default is 800px) )
+  
+   rotateY: rotates element around vertically (without deforming it)
+   
+   translateZ: defines a 3d translation, using only the value of the length of z-axis
+   "repositions element closer or farther away from the viewer".
+   positive value moves towards, negative farther away
+   
+   scale: change size of an element (0.5 smaller)
+   */
+    /*we have to add transform origin to main : left*/
+}
+
+/*specifies the animation inside keyframes*/
+@keyframes animMain {
+    from {
+        transform: translate(0);
+        /*starts from position 0*/
+    }
+
+    to {
+        transform: perspective(1500px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+}
+
+.side-bar {
+    position: absolute;
+    /*it's positioned based on its usual place in the document flow, but based on the position of its ancestor*/
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100vh;
+    z-index: 2;
+    /*specifies the stack order of an element*/
+    display: flex;
+    /*defines flex container depending on the given value.. enables a flex context for all its direct children*/
+    justify-content: center;
+    /*defines alignment horizontally */
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    /*to remove list markers*/
+}
+
+.side-bar a {
+    font-weight: 600;
+    font-size: 20px;
+    color: #23b6bb;
+    text-decoration: none;
+    padding: 10px 0;
+    display: inline-block;
+    /*displays list items horizontally(but they don't overlap(mix up on each other)) 
+    allows to set the width and height of an element*/
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-family: 'Elastic Bones', sans-serif;
+}
+
+.side-bar a:hover {
+    border-style: groove;
+    border-radius: 15%;
+    border-color: #be0303d5;
+    scale: 1.1;
+    /*changing size of an element*/
+    padding: 5px 10px;
+}
+
+/*popup boxes*/
+.popup {
+    position: fixed;
+    /*stays always fixed in the same defined position no matter scrolling*/
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    /*moves an element from its current position according to parameters(x-axis-y-axis) center*/
+    width: 800px;
+    max-width: 80%;
+    height: 480px;
+    max-height: 60%;
+    text-align: center;
+    background-image: url(running.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*scale the image to fill the container*/
+    /* background-color: rgba(248, 4, 4, 0.605);*/
+    color: rgb(239, 239, 239);
+    border: 1px groove #fcf8f8bc;
+    border-radius: 15px;
+    z-index: 12;
+    /*the stack order of an element*/
+    padding: 30px 30px;
+    visibility: hidden;
+    /*invisible*/
+}
+
+.popup img {
+    width: 80px;
+    margin-top: -6rem;
+    border-radius: 40%;
+    background-color: #ff0707;
+}
+
+.popup h2 {
+    font-weight: 600;
+    font-size: 30px;
+    margin: 30px;
+    color: #ff0707;
+}
+
+.popup p {
+    font-size: 1.1rem;
+    font-family: sans-serif;
+}
+
+.popup p span {
+    font-size: 1.3rem;
+    color: #ff0707;
+}
+
+.popup button {
+    width: 60%;
+    padding: 10px 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 2px groove rgb(103, 103, 14);
+    border-radius: 10px;
+    background-color: silver;
+    font-weight: 550;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    /* @MEDIA  
+    position: relative;
+    bottom: 50px;*/
+}
+
+.popup button:hover {
+    cursor: pointer;
+    background-color: #ff0707;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+.openBox {
+    visibility: visible;
+}
+
+/*Form*/
+#contactForm {
+    width: 800px;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    /*it includes any border or padding in total width and height of an element.
+    ex:if you set 100px width it will include any padding or border will be added  */
+    background-image: url(night.gif);
+}
+
+input,
+textarea {
+    width: 80%;
+    font-size: inherit;
+    /*property should inherit from its parent element*/
+    padding: 10px 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    /*attaches shadows to an element*/
+    background-color: #aac5c6;
+    border-radius: 20px;
+
+}
+
+textarea {
+    width: 80%;
+    padding: 15px;
+    height: 150px;
+    font-size: 17px;
+}
+
+form .fbtn {
+
+    /* usual styles */
+    padding: 7px;
+    border: none;
+    background-color: #3F51B5;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 20px;
+    width: 30%;
+    margin: 0px 5px 50px 5px;
+
+}
+
+
+/*Style Icons*/
+.icons {
+    margin-top: 30rem;
+    display: flex;
+    /*specify a flexible container*/
+    flex-direction: column;
+    /*defines which direction the container will stack the flex items*/
+}
+
+.icons i {
+    font-size: 35px;
+    color: #099499;
+    margin-top: 5px;
+}
+
+.icons i:hover {
+    scale: 1.3;
+    cursor: pointer;
+}
+
+@media screen and (max-width:677px) {
+    .content {
+        display: none;
+    }
+
+    .side-bar {
+        text-align: right;
+    }
+
+    .side-menu i {
+        display: none;
+    }
+
+    .popup button {
+        position: relative;
+        bottom: 50px;
+    }
+
+    form .fbtn {
+        margin-top: 40px;
+    }
+}

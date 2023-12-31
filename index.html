@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="style.css">
+    <!--icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--ScaryFonts-->
+    <link href="https://fonts.cdnfonts.com/css/elastic-bones" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <div class="menu">
+                <h3 class="logo">Blair<span>Witch</span></h3>
+                <div class="side-menu"><i onclick="changeIcon(this)" class='bx bx-menu'></i>
+                    <!-- <div class="sidebar"></div>-->
+                </div>
+            </div>
+        </div>
+
+        <!--Main page content and btn-->
+        <div class="content">
+            <div class="main">
+                <header><!--remove header-->
+                    <div id="vid-container">
+                        <video id="background-vid" autobuffer preload>
+                            <!--it buffers(stores)the vid to prepare for playback
+                            
+                                the vid will automatically begin being downloaded..even if not set to automatically play.
+                            
+                                preload: tells the browser to load the video as soon as possible|| the vid should be loaded when the page loads -->
+                            <source
+                                src="https://res.cloudinary.com/dm4vls99s/video/upload/v1695749358/media/BlairWitch_blmbph.mp4"
+                                type="video/mp4">
+                            Your video is not supported on this browser!
+                        </video>
+                        <div class="overlay">
+                            <div class="txt">
+                                <h2 class="title">EVIL HIDES IN THE WOODS</h2>
+                                <p>Inspired by the cinematic lore of Blair Witch, experience a new story-driven
+                                    psychological horror game that studies your reactions to fear and stress.</p>
+                                <a href="#" class="btn">Watch Trailer</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <div class="side-bar">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="https://store.steampowered.com/app/1092660/Blair_Witch/" target="_blank"
+                        rel="noreferrer noopener">Play Demo</a>
+                </li>
+                <li>
+                    <a href="#" onclick="openPop()">Buy Now</a>
+                </li>
+                <li>
+                    <a href="#" onclick="contactFunc()">Contact</a>
+                </li>
+                <li>
+                    <a href="#" onclick="aboutFunc()">About us</a>
+                </li>
+            </ul>
+            <div class="icons">
+                <i id="fb" class='bx bxl-facebook-square'></i>
+                <i id="insta" class='bx bxl-instagram'></i>
+                <i id="twit" class='bx bxl-twitter'></i>
+                <i id="yt" class='bx bxl-youtube'></i>
+            </div>
+
+        </div>
+        <!--PopUp Boxes-->
+        <div class="popup" id="popup">
+            <img src="orders.webp" alt="">
+            <h2>BLAIR WITCH GAME</h2>
+            <p>VR Edition is available on the PlayStation Store and Steam for
+                <span>$29.99</span>. A deluxe
+                version of Blair Witch: VR Edition including the game, original soundtrack, and Art of Blair Witch
+                digital artbook is available for <span>$34.99</span>.
+            </p>
+            <button type="submit">Buy Now</button>
+            <button type="submit" onclick="closePop()">Cancel</button>
+        </div>
+        <!--CONTACT-->
+        <div class="popup" id="contactForm">
+            <img src="sendmail.png" alt="">
+            <form>
+                <h2>CONTACT FORM</h2>
+
+                <input type="text" id="fullname" name="name" placeholder="Name" required><br>
+
+                <input type="text" id="em" name="email" placeholder="Email"><br>
+
+                <textarea placeholder="Write Your Message..."></textarea> <br><br>
+
+                <button type="submit" class="fbtn">SEND</button>
+                <button type="submit" class="fbtn" onclick="closePop()">CLOSE</button>
+            </form>
+        </div>
+
+        <div class="popup" id="popup1">
+            <img src="info.png" alt="">
+            <h2>About us</h2>
+            <p>Blair Witch is a survival horror video game developed by Bloober Team based on the Blair Witch series of
+                horror films. <br>It was published by Lionsgate Games for Microsoft Windows, Xbox One and Xbox Game Pass
+                on
+                August 30, 2019.
+                <br>The game is set in 1996, two years after the events of The Blair Witch Project.
+            </p>
+
+            <button type="submit" onclick="closePop()">OK</button>
+        </div>
+    </div>
+
+
+    <script src="main.js">
+    </script>
+</body>
+
+</html>
